@@ -1,0 +1,40 @@
+{
+    "company": "micron",
+    "root_url": "",
+    "listing": {
+        "root_tail": "",
+        "job_listing": {
+            "resolution_hierarchy": []
+        }
+    },
+    "more_info_object": {
+        "navigate_by": null,
+        "prepend_root_to_url": null,
+        "resolution_hierarchy": []
+    },
+    "nav_to_next_page": {
+        "navigate_by": null,
+        "prepend_root_to_url": null,
+        "resolution_hierarchy": []
+    },
+    "details": {
+        "job_title": {
+            "resolution_hierarchy": []
+        },
+        "location": {
+            "resolution_hierarchy": []
+        },
+        "minimum_qualification": {
+            "resolution_hierarchy": []
+        },
+        "preferred_qualification": {
+            "resolution_hierarchy": []
+        },
+        "about_job": {
+            "resolution_hierarchy": []
+        },
+        "responsibilities": {
+            "resolution_hierarchy": []
+        }
+    }
+}

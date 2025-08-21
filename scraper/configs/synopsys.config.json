@@ -1,0 +1,95 @@
+{
+    "company": "synopsys",
+    "root_url": "https://careers.synopsys.com/",
+    "listing": {
+        "root_tail": "search-jobs",
+        "fetch_mode": 1,
+        "pre_scraping_instructions" : [
+            ["ButtonClick", "button", {"text" : "Accept All Cookies"}]
+        ],
+        "job_listing": {
+            "resolution_hierarchy": [
+                ["section", {"id":"search-results-list", "class":"search-results-list"}, false],
+                ["ul", {}, false],
+                ["li", {"class": "search-results-list__list-item"}, true]
+            ]
+        }
+    },
+    "more_info_object": {
+        "navigate_by": "PARSE_HREF",
+        "prepend_root_to_url": true,
+        "resolution_hierarchy": [
+            ["a", {}, false]
+        ]
+    },
+    "nav_to_next_page": {
+        "navigate_by": "BROWSER_ACTION",
+        "browser_actions": [
+            ["ButtonClick", "a", {"XPATH" : "//div[@class='pagination-paging']//a[@class='next']"}]
+        ],
+        "end_of_navigation_marker": {
+                    "eon_mode" : 0,
+                    "resolution_hierarchy" : [
+                        ["div", {"class" : "pagination-paging"}, false],
+                        ["a", {"class" : "next disabled"}, false]
+                    ]
+                }
+    },
+    "details": {
+        "job_title": {
+            "resolution_hierarchy": [
+                ["h1", {"class":"ajd_header__job-title"}, false]
+            ]
+        },
+        "location": {
+            "resolution_hierarchy": [
+                ["span", {"class":"ajd-job-location"}, false]
+            ]
+        },
+        "posting_date" : {
+            "resolution_hierarchy": [
+                ["span", {"class":"job-date job-info"}, false]
+            ]
+        },
+        "job_id" : {
+            "resolution_hierarchy": [
+                ["span", {"class":"job-id job-info"}, false]
+            ]
+        },
+        "pay_range" :{
+            "resolution_hierarchy" : [
+                ["span", {"class" : "ajd-job-salary"}, false]
+            ]
+        },
+        "minimum_qualification": {
+            "resolution_hierarchy": [
+                ["div", {"class" : "ats-description ajd_job-details__ats-description"}, false],
+                ["ul", {}, true, 2]
+            ]
+        },
+        "preferred_qualification": {
+            "resolution_hierarchy": [
+                ["div", {"class" : "ats-description ajd_job-details__ats-description"}, false],
+                ["ul", {}, true, 3]
+            ]
+        },
+        "about_job": {
+            "resolution_hierarchy": [
+                ["div", {"class" : "ats-description ajd_job-details__ats-description"}, false],
+                ["p", {}, true, 4]
+            ]
+        },
+        "responsibilities": {
+            "resolution_hierarchy": [
+                ["div", {"class" : "ats-description ajd_job-details__ats-description"}, false],
+                ["ul", {}, true, 0]
+            ]
+        },
+        "impact": {
+            "resolution_hierarchy": [
+                ["div", {"class" : "ats-description ajd_job-details__ats-description"}, false],
+                ["ul", {}, true, 1]
+            ]
+        }
+    }
+}

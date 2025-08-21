@@ -1,0 +1,55 @@
+{
+    "company": "Google",
+    "root_url": "https://www.google.com/about/careers/applications/",
+    "listing" : {
+                "root_tail" : "jobs/results",
+                "job_listing": {
+                                "parent": null,
+                                "id": "job_listing_id",
+                                "resolution_hierarchy" :[
+                                            ["ul", {"class": "spHGqe"}, false],
+                                            ["li", {"class": "lLd3Je"}, true]
+                                    ]
+                                }
+                },
+    "more_info_object": {
+                "navigate_by": "PARSE_HREF",
+                "prepend_root_to_url": true,
+                "resolution_hierarchy": [["a", {"class": "WpHeLc VfPpkd-mRLv6 VfPpkd-RLmnJb"}, false]]
+                },
+    "nav_to_next_page": {
+                "navigate_by": "PARSE_HREF",
+                "prepend_root_to_url": false,
+                "resolution_hierarchy": [["a", {"jsname": "hSRGPd", "aria-label": "Go to next page"}, false]]
+                },
+    "details": {
+                "job_title": {
+                    "resolution_hierarchy": [["h2", {"class" :"p1N2lc"}, false]]
+                    },
+                "location": {
+                    "resolution_hierarchy": [
+                        ["div", {"jsname" : "tIk9qd"}, false],
+                        ["div", {"class" :"op1BBf"}, false],
+                        ["span", {"class" : "pwO9Dc vo5qdf"}, false]
+                ]
+                    },
+                "minimum_qualification": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" :"KwJkGe"}, false],
+                        ["ul", {}, true, 0]
+                        ]
+                },
+                "preferred_qualification": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" :"KwJkGe"}, false],
+                        ["ul", {}, true, 0]
+                    ]
+                },
+                "about_job": {
+                    "resolution_hierarchy": [["div", {"class" :"aG5W3"}, false]]
+                },
+                "responsibilities": {
+                    "resolution_hierarchy": [["div", {"class" :"BDNOWe"}, false]]
+                }
+        }        
+    }

@@ -1,0 +1,76 @@
+{
+    "company": "Apple",
+    "root_url": "https://jobs.apple.com/",
+    "listing" : {
+            "root_tail" : "en-us/search",
+            "fetch_mode": 1,
+            "pre_scraping_instructions": [
+                            ["ButtonClick", "button", {"id" : "search-filters-clear-all-button"}]
+                        ],
+            "job_listing": {
+                            "resolution_hierarchy" :[
+                                ["ul", {"id" : "search-job-list"}, false],
+                                ["li", {"class" : "rc-accordion-item"}, true]
+                            ]
+                        }        
+            },
+    "more_info_object": {
+            "navigate_by": "PARSE_HREF",
+            "prepend_root_to_url": true,
+            "resolution_hierarchy": [
+                ["h3", {}, false],
+                ["a", {}, false]
+            ]
+        },    
+    "nav_to_next_page": {
+            "navigate_by" : "BROWSER_ACTION",
+            "browser_actions": [
+                                   ["ButtonClick", "button", {"id" : "search-filters-clear-all-button"}],
+                                   ["ButtonClick", "button", {"aria-label" : "Next Page"}] 
+                                ]
+            },
+    "details": {
+            "job_title": {
+                    "resolution_hierarchy": [["h1", {"id" : "jobdetails-postingtitle"}, false]]
+                },
+            "location": {
+                    "resolution_hierarchy": [["label", {"id" : "jobdetails-joblocation"}, false]]
+                },
+            "posting_date" : {
+                "resolution_hierarchy": [["time", {"id" : "jobdetails-jobpostdate"}, false]]
+            },
+            "job_id" :{
+                "resolution_hierarchy": [["strong", {"id" : "jobdetails-jobnumber"}, false]]
+            },
+            "minimum_qualification" : {
+                "resolution_hierarchy" : [
+                    ["div", {"id" : "jobdetails-jobdetails-minimumqualifications-content-row"}, false],
+                    ["ul", {}, false]
+                ]
+            },
+            "key_qualification" : {
+                "resolution_hierarchy" : [
+                    ["div", {"id" : "jobdetails-jobdetails-keyqualifications-content-row"}, false],
+                    ["ul", {}, false]
+                ]
+            },
+            "preferred_qualification": {
+                "resolution_hierarchy": [
+                    ["section", {"class" : "hyperlink-underline"}, false],
+                    ["div", {"id" : "jobdetails-preferredqualifications"}, false]
+                ]
+            },
+
+            "about_job": {
+                "resolution_hierarchy": [
+                    ["div", {"id" : "jobdetails-jobdetails-jobsummary-content-row"}, false]
+                ]
+            },
+            "responsibilities": {
+                "resolution_hierarchy": [
+                    ["div", {"id" : "jobdetails-jobdetails-jobdescription-content-row"}, false]
+                ]
+            }
+    }        
+}
+

@@ -1,0 +1,73 @@
+{
+    "company": "Microsoft",
+    "root_url": "https://jobs.careers.microsoft.com/global/en/search",
+    "wait_until_load_major" :10,
+    "wait_until_load_minor" :5,
+    "listing" : {
+                "root_tail" : "",
+                "fetch_mode": 1,
+                "pre_scraping_instructions": [],
+                "job_listing": {
+                                "resolution_hierarchy" :[
+                                    ["div", {"class" : "ms-List"}, false],
+                                    ["div", {"class" : "ms-List-cell"}, true]
+                                ]
+                            }
+            },
+    "more_info_object": {
+                "navigate_by": "BROWSER_ACTION",
+                "prepend_root_to_url": false,
+                "browser_actions": [
+                    ["ButtonClick", "button", {"text": "See details"}, false],
+                    ["ButtonClick", "button", {"text": "Reject"}, false]    
+                ]
+            },    
+    "nav_to_next_page": {
+                "navigate_by" : "BROWSER_ACTION",
+                "browser_actions": [
+                                        ["ButtonClick", "button", {"aria-label" : "Go to next page"}]
+                                    ]
+            },
+    "details": {
+                "job_title": {
+                        "resolution_hierarchy": [
+                            ["h1", {}, true, 0]
+                        ]
+                    },
+                    "location": {
+                        "resolution_hierarchy": [
+                            ["p", {}, true, 0]
+                        ]
+                    },
+                    "posting_date" :{
+                        "resolution_hierarchy": [
+                            ["div", {"class" : "ms-Stack"}, true, 22]
+                        ]
+                    },
+                    "job_id" :{
+                        "resolution_hierarchy": [
+                            ["div", {"class" : "ms-Stack"}, true, 25]
+                        ]
+                    },
+                "qualification": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" : "WzU5fAyjS4KUVs1QJGcQ"}, false]
+                    ]
+                },
+
+                "about_job": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" : "fcUffXZZoGt8CJQd8GUl"}, false],
+                        ["div", {"class" : "MKwm2_A5wy0mMoh9vTuX"}, true, 0]
+                    ]
+                },
+                "responsibilities": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" : "fcUffXZZoGt8CJQd8GUl"}, false],
+                        ["div", {"class" : "MKwm2_A5wy0mMoh9vTuX"}, true, 1],
+                        ["ul", {}, false]
+                    ]
+                }
+    }        
+}
+

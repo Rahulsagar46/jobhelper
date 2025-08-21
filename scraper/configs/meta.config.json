@@ -1,0 +1,93 @@
+{
+    "company": "Meta",
+    "root_url": "https://www.metacareers.com/",
+    "listing" : {
+                    "root_tail" : "jobs/",
+                    "fetch_mode" : 1,
+                    "job_listing": {
+                                    "parent": null,
+                                    "id": "job_listing_id",
+                                    "resolution_hierarchy" :[
+                                                {
+                                                    "tag" : "a",
+                                                    "find_by" : {"attrs" : {"class" : "x1ypdohk x1lku1pv"}},
+                                                    "multiple_instances_expected" : true
+                                                }
+                                        ]
+                                    },
+                    "job_description_object": {
+                        "resolution_hierarchy": [
+                            {
+                                "tag": "div",
+                                "find_by": {"attrs" : {"class": "_6g3g x10lme4x x26uert xngnso2 x117nqv4 x1mnlqng x1e096f4"}},
+                                "multiple_instances_expected": false
+                            }
+                        ]
+                    },
+                    "location_object": {
+                        "resolution_hierarchy": [
+                            {
+                                "tag": "div",
+                                "find_by": {"attrs" : {"class": "x78zum5 x1q0g3np x1a02dak"}},
+                                "multiple_instances_expected": false
+                            },
+                            {
+                                "tag": "div",
+                                "find_by": {},
+                                "multiple_instances_expected": true,
+                                "index_to_pick" : 0
+                            }
+                        ]
+                    }
+            },
+        "more_info_object": {
+                        "navigate_by": "PARSE_HREF",
+                        "prepend_root_to_url": true,
+                        "resolution_hierarchy": []
+                    },
+        "nav_to_next_page": {
+                        "navigate_by": "PARSE_HREF",
+                        "prepend_root_to_url": false,
+                        "resolution_hierarchy": [
+                            {
+                                "tag": "a",
+                                "find_by": {"attrs": {"class":"x5y1uuc x1lku1pv x6s0dn4 x11g6tue x972fbf x10w94by x1qhh985 x14e42zd xbsr9hj x1ypdohk x78zum5 xtqikln x1hl2dhg"}},
+                                "multiple_instances_expected": false
+                            }
+                        ]
+                    },
+    "details": {
+                "qualification_object": {
+                    "resolution_hierarchy": [
+                        {
+                            "tag" : "div",
+                            "find_by": {"class_" : "_8mlh"},
+                            "multiple_instances_expected": true,
+                            "index_to_pick": 1
+                        }
+                    ]
+                },
+
+                "about_job_object": {
+                    "resolution_hierarchy": [
+                        {
+                            "tag" : "div",
+                            "find_by": {"class_" : "_1n-_ _6hy- _94t2"},
+                            "multiple_instances_expected": true,
+                            "index_to_pick": 0
+                        }
+                    ]
+                },
+                "responsibilities_object": {
+                    "resolution_hierarchy": [
+                        {
+                            "tag" : "div",
+                            "find_by": {"class_" : "_8mlh"},
+                            "multiple_instances_expected": true,
+                            "index_to_pick": 0
+                        }
+                    ]
+                }
+    }        
+}
+

@@ -1,0 +1,64 @@
+{
+    "company": "Qualcomm",
+    "root_url": "https://careers.qualcomm.com/careers",
+    "nav_to_end_before_scraping": true,
+    "fragment_job_info_after_scraping" : true,
+    "listing" : {
+            "root_tail" : "",   
+            "fetch_mode": 1, 
+            "pre_scraping_instructions": [],
+            "job_listing": {
+                    "resolution_hierarchy" :[
+                                ["div", {"class" : "job-card-container list"}, true]
+                        ] 
+                        }
+            },
+    "more_info_object": {
+            "navigate_by": "BROWSER_ACTION",
+            "browser_actions": [
+                ["ButtonClick", "button", {"text": "Apply"}],
+                ["ButtonClick", "a", {"aria-label": "close modal"}]
+            ]
+                    },    
+    "nav_to_next_page": {
+            "navigate_by" : "BROWSER_ACTION",
+            "browser_actions": [
+                    ["ButtonClick", "button", {"text" :"Show More Positions"}]
+                                ]
+        },
+    "details": {
+            "job_title": {
+                    "resolution_hierarchy": [
+                        ["h1", {"class" : "position-title"}, false]
+                    ]
+                },
+            "location": {
+                    "resolution_hierarchy": [
+                        ["p", {"class" : "position-location"}, true, 1]
+                    ]
+                },
+            "posting_date": {
+                    "resolution_hierarchy": [
+                        ["div", {"class" : "custom-jd-field"}, false],
+                        ["div", {}, false]
+                    ]
+            },
+            "job_id": {
+                "resolution_hierarchy": [
+                    ["p", {"class" : "faded position-id-text"}, false]     
+                ]
+            },
+            "total_text" : {
+                "resolution_hierarchy": [
+                    ["div", {"class" : "position-details"}, false]
+                ]
+            },
+            "to_be_parsed" :{
+                "about_job" : ["General Summary:", "Core Responsibilities:"],
+                "responsibilities" : ["Core Responsibilities:", "Core Skills and Qualifications:"],
+                "minimum_qualification" : ["Core Skills and Qualifications:", "Desired Competencies & Skills:"],
+                "preferred_qualification" : ["Desired Competencies & Skills:", "Applicants:"]
+            }
+        }        
+}
+

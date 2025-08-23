@@ -1,5 +1,10 @@
+"""
+Text parsing and manipulation utilities.
+"""
+
 
 def cut_target_fragment_from_total_text(total_text, start, end):
+    """Extract text fragment between start and end markers."""
     chunks1 = total_text.split(start)
     chunk_below = chunks1[1].strip()
     

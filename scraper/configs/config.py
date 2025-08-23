@@ -1,19 +1,16 @@
 import os
 from corelib.file_io_operations.file_operations import read_json_file, write_json_file
 
-# Get the directory where this config.py file is located
-_config_dir = os.path.dirname(os.path.abspath(__file__))
-
 # NOTE: when adding a new compyn to scrape, the company has to be added in this dict
 # NOTE: once these are moved into database then a new company can be inserted using create_new_config() method of JobScrapper 
 _company_to_config_file_map = {
-    "google": os.path.join(_config_dir, "google.config.json"),
-    "apple": os.path.join(_config_dir, "apple.config.json"),
-    "qualcomm": os.path.join(_config_dir, "qualcomm.config.json"),
-    "microsoft": os.path.join(_config_dir, "microsoft.config.json"),
-    "meta": os.path.join(_config_dir, "meta.config.json"),
-    "synopsys": os.path.join(_config_dir, "synopsys.config.json"),
-    "micron": os.path.join(_config_dir, "micron.config.json")
+    "google": "./configs/google.config.json",
+    "apple": "./configs/apple.config.json",
+    "qualcomm": "./configs/qualcomm.config.json",
+    "microsoft": "./configs/microsoft.config.json",
+    "meta": "./configs/meta.config.json",
+    "synopsys": "./configs/synopsys.config.json",
+    "micron" : "./configs/micron.config.json"
 }
 
 def get_configuration(company):

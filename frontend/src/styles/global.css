@@ -1,0 +1,10 @@
+/* Global styles and CSS resets */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', 'Avenir', Helvetica, Arial, sans-serif;
+  background: #F4F6F8;
+  color: #212121;
+}

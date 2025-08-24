@@ -1,0 +1,47 @@
+/* JobCard component styles using theme variables */
+:root {
+  --primary: #2C3E50;
+  --secondary: #18BC9C;
+  --accent: #F39C12;
+  --surface: #FFFFFF;
+  --shadow: rgba(44, 62, 80, 0.15);
+  --border-radius: 8px;
+}
+.job-card {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.job-card:hover {
+  box-shadow: 0 4px 16px var(--shadow);
+}
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.job-company {
+  color: var(--secondary);
+  font-weight: 600;
+}
+.job-card-body {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: #757575;
+}
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #888;
+}
+.job-tags {
+  color: var(--accent);
+  font-weight: 500;
+}

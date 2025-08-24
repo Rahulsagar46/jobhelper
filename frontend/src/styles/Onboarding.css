@@ -1,0 +1,111 @@
+/* Onboarding page styles using theme variables */
+@import url('./global.css');
+:root {
+  --primary: #2C3E50;
+  --secondary: #18BC9C;
+  --accent: #F39C12;
+  --background: #F4F6F8;
+  --surface: #FFFFFF;
+  --error: #E74C3C;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --shadow: rgba(44, 62, 80, 0.15);
+  --border-radius: 8px;
+}
+.onboarding-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.onboarding-form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.input-field {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.verticals-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.vertical-chip {
+  background: #eee;
+  color: var(--text-primary);
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+.vertical-chip.selected {
+  background: var(--secondary);
+  color: #fff;
+}
+.companies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.company-chip {
+  background: #eee;
+  color: var(--text-primary);
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.company-chip.selected {
+  background: var(--accent);
+  color: #fff;
+}
+.company-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.onboarding-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.submit-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.skip-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: #eee;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}

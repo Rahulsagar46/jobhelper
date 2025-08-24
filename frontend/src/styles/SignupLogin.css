@@ -1,0 +1,90 @@
+/* Signup/Login page styles using theme variables */
+@import url('./global.css');
+:root {
+  --primary: #2C3E50;
+  --secondary: #18BC9C;
+  --accent: #F39C12;
+  --background: #F4F6F8;
+  --surface: #FFFFFF;
+  --error: #E74C3C;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --shadow: rgba(44, 62, 80, 0.15);
+  --border-radius: 8px;
+}
+.signup-login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.signup-login-hero {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.signup-login-tabs {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.tab-btn {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  background: #eee;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tab-btn.active {
+  background: var(--secondary);
+  color: #fff;
+}
+.signup-login-form {
+  margin-bottom: 1.5rem;
+}
+.input-field {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.oauth-section {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.oauth-btn {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.oauth-btn.linkedin {
+  background: #0077b5;
+}
+.oauth-btn.gmail {
+  background: #ea4335;
+}

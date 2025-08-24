@@ -1,0 +1,28 @@
+/* ProgressMeter component styles using theme variables */
+.progress-meter {
+  display: inline-block;
+  margin: 0 1rem;
+  text-align: center;
+}
+.circular-chart {
+  width: 60px;
+  height: 60px;
+}
+.circle-bg {
+  stroke: #eee;
+}
+.circle {
+  stroke: var(--secondary);
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s;
+}
+.percentage {
+  fill: var(--primary);
+  font-weight: bold;
+  dominant-baseline: middle;
+}
+.meter-label {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}

@@ -1,3 +1,11 @@
+/* Blue background for the h4 container in job-card-header */
+.job-card-header h4 {
+  background: #2196f3;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
 /* JobCard component styles using theme variables */
 :root {
   --primary: #2C3E50;
@@ -14,16 +22,21 @@
   padding: 1rem;
   margin-bottom: 1rem;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 .job-card:hover {
-  box-shadow: 0 4px 16px var(--shadow);
+  box-shadow: 0 3px 10px var(--shadow);
+  transform: translateY(-1px) scale(1.015);
 }
 .job-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+  background: #e3f2fd;
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px 6px 0 0;
 }
 .job-company {
   color: var(--secondary);

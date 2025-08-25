@@ -1,5 +1,58 @@
-/* Home page 3-column layout and modular structure using theme variables */
+/* Job Tabs Styles */
 @import url('./global.css');
+.job-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.job-tab {
+  background: var(--surface);
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 2px 4px var(--shadow);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.job-tab.active {
+  background: #2196f3;
+  color: #fff;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+.job-tab:hover {
+  box-shadow: 0 4px 12px var(--shadow);
+  transform: translateY(-2px) scale(1.04);
+  z-index: 1;
+}
+
+/* Blue background for the div containing h2 in job-list-header */
+.job-list-header > div:first-child {
+  background: #2196f3;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+/* Home page 3-column layout and modular structure using theme variables */
+.layout-selector button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.layout-selector button.active {
+  background: var(--secondary);
+  color: #fff;
+}
 :root {
   --primary: #2C3E50;
   --secondary: #18BC9C;
@@ -16,8 +69,9 @@
   display: flex;
   min-height: 80vh;
   background: var(--background);
-  gap: 1.5rem;
-  padding: 2rem 0;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  width: 100%;
 }
 .home-left-panel {
   flex: 0 0 220px;
@@ -47,8 +101,24 @@
 .job-list-header {
   margin-bottom: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.layout-selector {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.job-list-header > * {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
 }
 .job-list-content {
   flex: 1;
@@ -57,7 +127,7 @@
   gap: 1rem;
 }
 .home-right-panel {
-  flex: 0 0 300px;
+  flex: 0 0 480px;
   background: var(--surface);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow);

@@ -1,10 +1,25 @@
+
 /* Global styles and CSS resets */
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --primary: #2C3E50;
+  --secondary: #18BC9C;
+  --accent: #F39C12;
+  --background: #F4F6F8;
+  --surface: #FFFFFF;
+  --error: #E74C3C;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --shadow: rgba(44, 62, 80, 0.15);
+  --border-radius: 8px;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', 'Avenir', Helvetica, Arial, sans-serif;
-  background: #F4F6F8;
-  color: #212121;
+  background: var(--background);
+  color: var(--text-primary);
 }

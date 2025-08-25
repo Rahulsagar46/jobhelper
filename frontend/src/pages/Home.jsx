@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import '../styles/Home.css';
 import JobCard from '../components/JobCard';
 import ProgressMeter from '../components/ProgressMeter';
+import Pagination from '../components/Pagination';
 import { jobs } from '../data/dummyData';
 
-const JOBS_PER_PAGE = 5;
+
 
 const Home = ({ testUser }) => {
+
   const [page, setPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
   const [view, setView] = useState('grid'); // 'grid' or 'list'
   const [openTabs, setOpenTabs] = useState([]); // Array of job ids
   const [activeTab, setActiveTab] = useState(null);
 
   const totalJobs = jobs.length;
-  const totalPages = Math.ceil(totalJobs / JOBS_PER_PAGE);
-  const startIdx = (page - 1) * JOBS_PER_PAGE;
-  const endIdx = Math.min(startIdx + JOBS_PER_PAGE, totalJobs);
+  const totalPages = Math.ceil(totalJobs / itemsPerPage);
+  const startIdx = (page - 1) * itemsPerPage;
+  const endIdx = Math.min(startIdx + itemsPerPage, totalJobs);
   const jobsToShow = jobs.slice(startIdx, endIdx);
 
   const handleJobClick = (job) => {
@@ -45,12 +48,7 @@ const Home = ({ testUser }) => {
   const getJobById = (id) => jobs.find((j) => j.id === id);
 
   return (
-    <div className="home-layout">
-      {testUser && (
-        <div className="test-user-banner" style={{background:'#18BC9C',color:'#fff',padding:'0.5rem 1rem',borderRadius:'8px',marginBottom:'1rem',textAlign:'center'}}>
-          <strong>Test User:</strong> {testUser}
-        </div>
-      )}
+  <div className="home-layout">
       {/* Left Panel */}
       <aside className="home-left-panel">
         <div className="panel-section">
@@ -105,63 +103,83 @@ const Home = ({ testUser }) => {
 
       {/* Middle Panel */}
       <main className="home-main-panel">
-        <div className="job-list-header">
-          <h2>Job Listings</h2>
-          <div>
-            <span>
-              Showing {startIdx + 1}-{endIdx} of {totalJobs} jobs
-            </span>
-            <button
-              className={view === 'grid' ? 'active' : ''}
-              onClick={() => setView('grid')}
-              style={{ marginLeft: '1rem' }}
-            >
-              Grid
-            </button>
-            <button
-              className={view === 'list' ? 'active' : ''}
-              onClick={() => setView('list')}
-              style={{ marginLeft: '0.5rem' }}
-            >
-              List
-            </button>
+        {/* Tabs at the top of the main panel */}
+        <div className="job-tabs">
+          {/* First tab: Job Listings */}
+          <div
+            className={`job-tab${activeTab === null ? ' active' : ''}`}
+            onClick={() => setActiveTab(null)}
+          >
+            Job Listings
           </div>
-          <div className="pagination">
-            <button onClick={() => setPage(page - 1)} disabled={page === 1}>
-              Prev
-            </button>
-            <span>
-              Page {page} of {totalPages}
-            </span>
-            <button onClick={() => setPage(page + 1)} disabled={page === totalPages}>
-              Next
-            </button>
-          </div>
+          {/* Other tabs: Opened job descriptions */}
+          {openTabs.map((id) => {
+            const job = getJobById(id);
+            return (
+              <div
+                key={id}
+                className={`job-tab${activeTab === id ? ' active' : ''}`}
+                onClick={() => setActiveTab(id)}
+              >
+                {job.title} <span className="tab-close" onClick={e => {e.stopPropagation(); handleCloseTab(id);}}>&times;</span>
+              </div>
+            );
+          })}
         </div>
-        <div className={`job-list-content ${view}`}>
-          {jobsToShow.map((job) => (
-            <JobCard key={job.id} job={job} onClick={() => handleJobClick(job)} />
-          ))}
-        </div>
-        {/* Tabs for opened job descriptions */}
-        {openTabs.length > 0 && (
-          <div className="job-tabs">
-            {openTabs.map((id) => {
-              const job = getJobById(id);
-              return (
-                <div
-                  key={id}
-                  className={`job-tab${activeTab === id ? ' active' : ''}`}
-                  onClick={() => setActiveTab(id)}
+
+        {/* Active tab content */}
+        {activeTab === null ? (
+          <>
+            <div className="job-list-header">
+              <div><h2>Job Listings</h2></div>
+              <div style={{width: '100%'}}>
+                <Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  onPrev={() => setPage(page - 1)}
+                  onNext={() => setPage(page + 1)}
+                  itemsPerPage={itemsPerPage}
+                  onItemsPerPageChange={n => { setItemsPerPage(n); setPage(1); }}
+                  startIdx={startIdx}
+                  endIdx={endIdx}
+                  totalJobs={totalJobs}
+                />
+              </div>
+              <div className="layout-selector" style={{width: '100%', marginTop: '0.5rem', display: 'flex', gap: '0.5rem'}}>
+                <button
+                  className={view === 'grid' ? 'active' : ''}
+                  onClick={() => setView('grid')}
                 >
-                  {job.title} <span className="tab-close" onClick={e => {e.stopPropagation(); handleCloseTab(id);}}>&times;</span>
-                </div>
-              );
-            })}
-          </div>
-        )}
-        {/* Job description view */}
-        {activeTab && (
+                  Grid
+                </button>
+                <button
+                  className={view === 'list' ? 'active' : ''}
+                  onClick={() => setView('list')}
+                >
+                  List
+                </button>
+              </div>
+            </div>
+            <div className={`job-list-content ${view}`}>
+              {jobsToShow.map((job) => (
+                <JobCard key={job.id} job={job} onClick={() => handleJobClick(job)} />
+              ))}
+            </div>
+            {/* Pagination block at bottom inside main panel */}
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              onPrev={() => setPage(page - 1)}
+              onNext={() => setPage(page + 1)}
+              itemsPerPage={itemsPerPage}
+              onItemsPerPageChange={n => { setItemsPerPage(n); setPage(1); }}
+              startIdx={startIdx}
+              endIdx={endIdx}
+              totalJobs={totalJobs}
+              style={{marginTop: '1rem'}}
+            />
+          </>
+        ) : (
           <div className="job-description">
             <h3>{getJobById(activeTab).title}</h3>
             <div className="progress-meters">

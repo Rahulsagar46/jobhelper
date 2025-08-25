@@ -5,7 +5,11 @@ const JobCard = ({ job, onClick }) => (
   <div className="job-card" onClick={onClick}>
     <div className="job-card-header">
       <h4>{job.title}</h4>
-      <span className="job-company">{job.company}</span>
+      {job.companyLogoUrl ? (
+        <img src={job.companyLogoUrl} alt={job.company} className="job-company-logo" />
+      ) : (
+        <span className="job-company">{job.company}</span>
+      )}
     </div>
     <div className="job-card-body">
       <span>{job.location}</span>

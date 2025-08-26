@@ -1,5 +1,96 @@
+/* Truncate document names and show tooltip on hover */
+.document-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  cursor: pointer;
+  background: var(--surface-alt, #f5f5f5);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  padding: 10px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+  transition: background 0.2s;
+}
+.document-item:hover {
+  background: var(--surface-hover, #eaeaea);
+}
+/* Application Documents Section Styles */
+.application-documents-section {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  transition: box-shadow 0.2s;
+  width: 100%;
+  min-height: 40px;
+}
+.application-documents-section .panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  user-select: none;
+  min-height: 32px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+.application-documents-section .panel-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.application-documents-section .expand-icon {
+  font-size: 1.2rem;
+  color: var(--primary);
+  transition: transform 0.2s;
+}
+.application-documents-section .panel-header:hover .expand-icon {
+  transform: scale(1.15);
+}
+.application-documents-section .panel-content {
+  padding-top: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.application-documents-section ul {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
+.application-documents-section li {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.application-documents-section .panel-btn {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.application-documents-section .panel-btn:hover {
+  box-shadow: 0 3px 10px var(--shadow);
+  transform: translateY(-1px) scale(1.015);
+}
+/* Lift and scale effect for pagination buttons */
+.pagination button {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pagination button:hover {
+  box-shadow: 0 3px 10px var(--shadow);
+  transform: translateY(-1px) scale(1.015);
+  z-index: 1;
+}
 /* Job Tabs Styles */
-@import url('./global.css');
 .job-tabs {
   display: flex;
   gap: 0.5rem;
@@ -47,7 +138,12 @@
   padding: 0.3rem 0.8rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.layout-selector button:hover {
+  box-shadow: 0 3px 10px var(--shadow);
+  transform: translateY(-1px) scale(1.015);
+  z-index: 1;
 }
 .layout-selector button.active {
   background: var(--secondary);
@@ -74,22 +170,29 @@
   width: 100%;
 }
 .home-left-panel {
-  flex: 0 0 220px;
+  flex: 0 0 260px;
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
   background: var(--surface);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow);
-  padding: 1rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
-.panel-section {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
+.panel-section,
+.favorites-section,
+.job-filter-preferences,
+.application-documents-section {
+  margin-bottom: 0.5rem;
 }
 .home-main-panel {
-  flex: 1 1 0;
+  flex: 0 0 760px;
+  width: 760px;
+  min-width: 760px;
+  max-width: 760px;
   background: var(--surface);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow);
@@ -108,7 +211,7 @@
 }
 .layout-selector {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem 0.8rem;
   display: flex;
   gap: 0.5rem;
   justify-content: flex-end;
@@ -127,7 +230,10 @@
   gap: 1rem;
 }
 .home-right-panel {
-  flex: 0 0 480px;
+  flex: 0 0 370px;
+  width: 370px;
+  min-width: 370px;
+  max-width: 370px;
   background: var(--surface);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow);
@@ -140,6 +246,123 @@
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
+}
+.job-filter-preferences {
+  background: var(--surface-alt, #f5f5f5);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+  min-height: 28px;
+}
+.job-filter-preferences h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.job-filter-preferences .filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.filter-options label {
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.filter-options label:hover {
+  background: var(--surface-hover, #eaeaea);
+}
+/* Favorites Section Styles */
+.favorites-section {
+  background: var(--surface-alt, #f5f5f5);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+.favorites-section h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.favorite-companies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.company-shortcut {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: background 0.2s, transform 0.2s;
+}
+.company-shortcut:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+/* Saved Jobs Styles */
+.saved-jobs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0.5rem 0;
+}
+.saved-job-item {
+  background: var(--surface-alt, #f5f5f5);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+  transition: background 0.2s, transform 0.2s;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.saved-job-item:hover, .saved-job-item:focus {
+  background: var(--surface-hover, #eaeaea);
+  transform: scale(1.03);
+  outline: none;
+}
+/* Applied Jobs Styles */
+.applied-jobs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0.5rem 0;
+}
+.applied-job-item {
+  background: var(--surface-alt, #f5f5f5);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+  transition: background 0.2s, transform 0.2s;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.applied-job-item:hover, .applied-job-item:focus {
+  background: var(--surface-hover, #eaeaea);
+  transform: scale(1.03);
+  outline: none;
 }
 @media (max-width: 1024px) {
   .home-layout {

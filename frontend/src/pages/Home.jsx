@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import ApplicationDocumentsSection from '../components/ApplicationDocumentsSection';
 import '../styles/Home.css';
 import JobCard from '../components/JobCard';
 import ProgressMeter from '../components/ProgressMeter';
+import ChatLLMSection from '../components/ChatLLMSection';
+import RightPanel from '../components/RightPanel';
 import Pagination from '../components/Pagination';
 import { jobs } from '../data/dummyData';
+import JobFilterPreferences from '../components/JobFilterPreferences';
+import FavoritesSection from '../components/FavoritesSection';
+import SavedJobsSection from '../components/SavedJobsSection';
+import AppliedJobsSection from '../components/AppliedJobsSection';
+import NotesSection from '../components/NotesSection';
 
 
 
@@ -49,56 +57,14 @@ const Home = ({ testUser }) => {
 
   return (
   <div className="home-layout">
-      {/* Left Panel */}
-      <aside className="home-left-panel">
-        <div className="panel-section">
-          <h3>Application Documents</h3>
-          <ul>
-            <li>Resume.pdf</li>
-            <li>CoverLetter.docx</li>
-            <li>Portfolio.zip</li>
-          </ul>
-          <button className="panel-btn">Upload Document</button>
-        </div>
-        <div className="panel-section">
-          <h3>Job Filter Preferences</h3>
-          <label>
-            <input type="checkbox" /> Remote Only
-          </label>
-          <label>
-            <input type="checkbox" /> Full-time
-          </label>
-          <label>
-            <input type="checkbox" /> Internship
-          </label>
-        </div>
-        <div className="panel-section">
-          <h3>Notes</h3>
-          <textarea rows="2" placeholder="Add a note..." className="panel-notes"></textarea>
-        </div>
-        <div className="panel-section">
-          <h3>Shortcuts to Favorite Companies</h3>
-          <div className="favorite-companies">
-            <button className="company-shortcut">Apple</button>
-            <button className="company-shortcut">Google</button>
-            <button className="company-shortcut">Meta</button>
-            <button className="company-shortcut">Micron</button>
-            <button className="company-shortcut">Microsoft</button>
-          </div>
-        </div>
-        <div className="panel-section">
-          <h3>Saved Jobs</h3>
-          <ul>
-            <li>Physical Design Engineer</li>
-            <li>Verification Engineer</li>
-          </ul>
-        </div>
-        <div className="panel-section">
-          <h3>Applied Jobs</h3>
-          <ul>
-            <li>Analog Design Engineer</li>
-          </ul>
-        </div>
+    {/* Left Panel */}
+    <aside className="home-left-panel">
+  <ApplicationDocumentsSection />
+  <JobFilterPreferences />
+  <FavoritesSection />
+  <SavedJobsSection onJobClick={handleJobClick} />
+  <AppliedJobsSection onJobClick={handleJobClick} />
+  <NotesSection />
       </aside>
 
       {/* Middle Panel */}
@@ -130,22 +96,8 @@ const Home = ({ testUser }) => {
         {/* Active tab content */}
         {activeTab === null ? (
           <>
-            <div className="job-list-header">
-              <div><h2>Job Listings</h2></div>
               <div style={{width: '100%'}}>
-                <Pagination
-                  page={page}
-                  totalPages={totalPages}
-                  onPrev={() => setPage(page - 1)}
-                  onNext={() => setPage(page + 1)}
-                  itemsPerPage={itemsPerPage}
-                  onItemsPerPageChange={n => { setItemsPerPage(n); setPage(1); }}
-                  startIdx={startIdx}
-                  endIdx={endIdx}
-                  totalJobs={totalJobs}
-                />
-              </div>
-              <div className="layout-selector" style={{width: '100%', marginTop: '0.5rem', display: 'flex', gap: '0.5rem'}}>
+                <div className="layout-selector" style={{width: '100%', marginTop: '0.5rem', display: 'flex', gap: '0.5rem'}}>
                 <button
                   className={view === 'grid' ? 'active' : ''}
                   onClick={() => setView('grid')}
@@ -159,6 +111,18 @@ const Home = ({ testUser }) => {
                   List
                 </button>
               </div>
+                <Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  onPrev={() => setPage(page - 1)}
+                  onNext={() => setPage(page + 1)}
+                  itemsPerPage={itemsPerPage}
+                  onItemsPerPageChange={n => { setItemsPerPage(n); setPage(1); }}
+                  startIdx={startIdx}
+                  endIdx={endIdx}
+                  totalJobs={totalJobs}
+                />
+              
             </div>
             <div className={`job-list-content ${view}`}>
               {jobsToShow.map((job) => (
@@ -197,31 +161,8 @@ const Home = ({ testUser }) => {
         )}
       </main>
 
-      {/* Right Panel */}
-      <aside className="home-right-panel">
-        <div className="right-section">
-          <h3>Comparative Analysis</h3>
-          <ul>
-            <li>Resume matches 80% of job requirements</li>
-            <li>Cover letter matches 70%</li>
-            <li>Portfolio matches 75%</li>
-          </ul>
-        </div>
-        <div className="right-section">
-          <h3>Interview Process & Tips</h3>
-          <p>Interview rounds: HR, Technical, Managerial</p>
-          <ul>
-            <li>Prepare for behavioral questions</li>
-            <li>Review VLSI fundamentals</li>
-            <li>Practice coding and design problems</li>
-          </ul>
-        </div>
-        <div className="right-section">
-          <h3>Chat with LLM</h3>
-          <textarea rows="2" placeholder="Ask anything about the job or company..." className="panel-notes"></textarea>
-          <button className="panel-btn">Send</button>
-        </div>
-      </aside>
+  {/* Right Panel */}
+  <RightPanel />
     </div>
   );
 };

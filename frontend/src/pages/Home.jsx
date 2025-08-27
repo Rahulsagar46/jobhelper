@@ -96,8 +96,8 @@ const Home = ({ testUser }) => {
         {/* Active tab content */}
         {activeTab === null ? (
           <>
-              <div style={{width: '100%'}}>
-                <div className="layout-selector" style={{width: '100%', marginTop: '0.5rem', display: 'flex', gap: '0.5rem'}}>
+              <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'right', marginBottom: '0.5rem', gap: '0.5rem'}}>
+                <div className="layout-selector" style={{width: '100%', marginTop: '0.2rem', marginBottom: '0rem', display: 'flex', gap: '0.1rem'}}>
                 <button
                   className={view === 'grid' ? 'active' : ''}
                   onClick={() => setView('grid')}

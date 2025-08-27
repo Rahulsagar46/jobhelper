@@ -94,14 +94,15 @@
 .job-tabs {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top : 0rem;
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 0.5rem;
   box-shadow: 0 2px 8px var(--shadow);
 }
 .job-tab {
-  background: var(--surface);
-  color: var(--primary);
+  background: #2C3E50;
+  color: #cfcdcdff;
   padding: 0.4rem 1rem;
   border-radius: 6px 6px 0 0;
   cursor: pointer;
@@ -111,9 +112,10 @@
   position: relative;
 }
 .job-tab.active {
-  background: #2196f3;
-  color: #fff;
+  background: #f0eeeeff;
+  color: #2C3E50;
   box-shadow: 0 4px 8px var(--shadow);
+  border-bottom:  3px ridge #f7b74eff;
 }
 .job-tab:hover {
   box-shadow: 0 4px 12px var(--shadow);
@@ -191,12 +193,17 @@
 .home-main-panel {
   flex: 0 0 760px;
   width: 760px;
+  height: 1270px;
   min-width: 760px;
   max-width: 760px;
+  min-height: 1270px;
+  max-height: 1270px;
+  overflow: auto;
   background: var(--surface);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow);
   padding: 1.5rem;
+  padding-top: 0.5rem;
   margin: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -227,7 +234,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.2rem;
+  margin-top: 0.2rem;
 }
 .home-right-panel {
   flex: 0 0 370px;
